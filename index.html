@@ -97,7 +97,7 @@ button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
   </div>
 
   <div class="info">
-    💡 <strong>Tip:</strong> Use brightness to lighten/darken, contrast to punch up edges. Adjust before choosing color count for best results.
+    💡 <strong>Tips:</strong> <br>• Choose fewer colors for a simpler pattern. <br>• Smaller pixel widths work better for beginners. <br>• Reset adjustments to return to original image settings.<br>• Use brightness to lighten/darken, contrast to punch up edges.
   </div>
 
   <div class="preview-section">
@@ -117,7 +117,7 @@ button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
   <div class="download-section">
     <button id="downloadBtn" disabled>🌈 Download Colored Pattern</button>
     <p style="margin-top:10px;color:#718096;font-size:.9rem;">
-      Downloads a HTML file that opens in Excel & Google Sheets. <br><b>Please note:</b> You will need to adjust the height/width of the cells manually.
+      Downloads a HTML file that opens in Excel & Google Sheets. <br><b>Please note:</b> You will need to adjust the height/width of the cells manually to make them square.
     </p>
   </div>
 </div>
@@ -381,9 +381,9 @@ td{border:1px solid #000;text-align:center;vertical-align:middle;font-size:14px;
 .legend-table td{width:auto!important;height:auto!important;min-width:auto!important;max-width:none!important;min-height:auto!important;max-height:none!important;padding:8px}
 @media print{.pattern-cell{width:.4in!important;height:.4in!important}}
 </style></head><body>
-<h2>🧶 Crochet/Knitting Pattern 🧶</h2>
+<h2>🧶 Tapestry Pattern 🧶</h2>
 <p><strong>Pattern Size:</strong> ${width} x ${height} | <strong>Colors:</strong> ${this.colorPalette.length}</p>
-<p><em>💡 Tip: In Google Sheets, match row height to column width for perfect squares.</em></p>
+<p><em>💡 Tip: Match row height to column width for perfect squares.</em></p>
 <h3>Color Legend:</h3>
 <table class="legend-table"><tr><th>Symbol</th><th>Color</th><th>RGB</th><th>Hex</th></tr>`;
     this.colorPalette.forEach((c, i)=>{
