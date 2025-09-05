@@ -542,4 +542,37 @@ td{border:1px solid #000;text-align:center;vertical-align:middle;font-size:14px;
           const idx = this.colorPalette.findIndex(c=>c.r===p.r && c.g===p.g && c.b===p.b);
           const sym = this.getColorSymbol(idx);
           const txt = this.getContrastColor(p);
-          html += `<td class="pattern-cell" style="background-color:rgb(${p.r},${p.g},${p.b});color:${txt};text-align:center;vertical-align:middle;border
+          html += `<td class="pattern-cell" style="background-color:rgb(${p.r},${p.g},${p.b});color:${txt};text-align:center;vertical-align:middle;border:1px solid #000">${sym}</td>`;
+        } else {
+          html += `<td class="pattern-cell" style="border:1px solid #000"></td>`;
+        }
+      }
+      html += `</tr>`;
+    }
+    html += `</table></body></html>`;
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${this.originalFileName || 'pixel-art'}-pattern.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  getColorSymbol(i){
+    const symbols = ['●','▲','■','♦','★','▼','◆','♣','♠','♥','◇','○','△','□','☆','▽','◈','♪','※','⬟'];
+    return symbols[i % symbols.length];
+  }
+  getContrastColor(c){
+    const L = (0.299*c.r + 0.587*c.g + 0.114*c.b)/255;
+    return L > 0.5 ? '#000000' : '#FFFFFF';
+  }
+  rgbToHex(r,g,b){ return "#" + ((1<<24) + (r<<16) + (g<<8) + b).toString(16).slice(1).toUpperCase(); }
+}
+
+document.addEventListener('DOMContentLoaded', ()=> new PixelArtGenerator());
+</script>
+</body>
+</html>
